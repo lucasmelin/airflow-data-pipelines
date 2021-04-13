@@ -1,0 +1,4 @@
+database/*
+superset
+logs/*
+venv/*

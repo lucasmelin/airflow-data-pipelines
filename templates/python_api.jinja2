@@ -1,0 +1,12 @@
+@app.get("/{{name}}")
+def get_data(limit: int = 10):
+    data_table = db["{{name}}"]
+    return list(data_table.find(_limit=limit))
+
+
+@app.get("/{{name}}/columns")
+def get_columns():
+    data_table = db["{{name}}"]
+    return data_table.columns
+
+
