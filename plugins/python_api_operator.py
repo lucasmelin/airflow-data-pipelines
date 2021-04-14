@@ -12,14 +12,15 @@ class GenerateAPIOperator(BaseOperator):
     def __init__(
             self,
             dest: str,
+            template_path: str = '/usr/local/airflow/templates',
             **kwargs) -> None:
         super().__init__(**kwargs)
         self.dest = dest
+        self.template_path = template_path
 
     def execute(self, context):
-        p = '/opt/airflow/templates' 
         env = Environment(
-            loader=FileSystemLoader(Path(p))
+            loader=FileSystemLoader(Path(self.template_path))
         )
         name = Path(context['task_instance'].xcom_pull(task_ids='get_filename'))
         destination = Path(self.dest)

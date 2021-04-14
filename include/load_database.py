@@ -6,7 +6,7 @@ from pathlib import Path
 
 def load(ti):
     # Creates the database if it doesn't exist
-    db = dataset.connect("sqlite:////opt/airflow/database/hhdemo.db")
+    db = dataset.connect("sqlite:////usr/local/airflow/database/hhdemo.db")
     name = Path(ti.xcom_pull(task_ids='get_filename'))
     
     # Get a reference to the table 'data'

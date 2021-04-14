@@ -1,0 +1,7 @@
+version: "2"
+services:
+  scheduler:
+    volumes:
+      - ./data:/usr/local/airflow/data
+      - ./database:/usr/local/airflow/database
+      - ./generated:/usr/local/airflow/generated

@@ -1,2 +1,4 @@
 dataset
 kedro
+airflow-provider-great-expectations
+great-expectations==0.13.14

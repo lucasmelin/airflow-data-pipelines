@@ -38,7 +38,7 @@ with DAG(
     get_filename = PythonOperator(
         task_id='get_filename',
         python_callable=get_latest_file,
-        op_kwargs={'filepath': '/opt/airflow/data'},
+        op_kwargs={'filepath': '/usr/local/airflow/data/engineering'},
     )
 
     load_data = PythonOperator(
@@ -48,7 +48,7 @@ with DAG(
 
     generate_api = GenerateAPIOperator(
         task_id="generate_api",
-        dest='/opt/airflow/generated/api.py'
+        dest='/usr/local/airflow/generated/api.py'
     )
 
     wait_for_file >> get_filename >> load_data >> generate_api
